@@ -1,6 +1,6 @@
 # Restaurant list
 
-This is a demo built up from [Alphacamp](https://tw.alphacamp.co/) semester 3 assignment.
+This is a restaurant list demo which built up from [Alphacamp](https://tw.alphacamp.co/) semester 3 assignment.
 
 ![demo-index](./public/img/demo-index.png)
 
@@ -19,10 +19,6 @@ git clone https://github.com/mpragnarok/restaurant-list.git
 ```
 
 ### Command line
-
-#### npm init
-
-Initialize npm
 
 #### npm install
 

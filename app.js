@@ -3,12 +3,12 @@ const express = require('express')
 const path = require('path')
 const exphbs = require('express-handlebars')
 const app = express()
-const port = 3000 || process.env.PORT
-const restaurantData = require('../restaurant.json')
+const port = process.env.PORT || 3000
+const restaurantData = require('./restaurant.json')
 
 // define path for Express config
-const viewsPath = path.join(__dirname, '../views/layouts')
-const partialsPath = path.join(__dirname, '../views')
+const viewsPath = path.join(__dirname, './views/layouts')
+const partialsPath = path.join(__dirname, './views')
 
 // setup handlebars engine and to use .hbs as file extension 
 app.engine('.hbs', exphbs({
