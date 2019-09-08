@@ -19,21 +19,22 @@
 
     </div>
   </div>
-  <div class="dropdown text-right">
-    <div class="btn-group">
-      <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Sorted by
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Rating</a>
-        <a class="dropdown-item" href="#">A-Z</a>
-        <a class="dropdown-item" href="#">Z-A</a>
-        <a class="dropdown-item" href="#">Type</a>
-        <a class="dropdown-item" href="#">Area</a>
+  <form action="/search" method="get">
+    <div class="dropdown text-right">
+      <div class="btn-group">
+        <button class="btn btn-outline-danger dropdown-toggle" type="button" name="sort" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false" onchange="this.form.submit()">
+          Sorted by {{sortBy}}
+        </button>
+        <div name="" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=rating&order=desc">Rating High to Low</a>
+          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=alphabet&order=asc">A-Z</a>
+          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=category&order=asc">Category</a>
+          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=time&order=desc">Newest</a>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </div>
 <!-- restaurant list -->
 <div class="container mt-5">

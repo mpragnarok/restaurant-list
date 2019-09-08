@@ -30,22 +30,7 @@ app.use('/restaurants', require('./routers/restaurant'))
 app.use('/search', require('./routers/search'))
 app.use('/', require('./routers/home'))
 
-// // route setting
-// app.get('/', (req, res) => {
-//   const restaurant = restaurantData.results
-//   res.render('index', { restaurant })
-// })
 
-// app.get('/restaurants/:id', (req, res) => {
-//   const bistro = restaurantData.results.find((bistro) => req.params.id === bistro.id.toString())
-//   res.render('show', { bistro })
-// })
-
-// app.get('/search', (req, res) => {
-//   const keyword = req.query.keyword
-//   const searchRestaurant = restaurantData.results.filter((restaurant) => restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) || restaurant.name.includes(keyword) || restaurant.category.includes(keyword))
-//   res.render('index', { restaurant: searchRestaurant, keyword })
-// })
 
 // set up listening on Express server
 app.listen(port, () => {

@@ -46,6 +46,10 @@ const RestaurantSchema = new mongoose.Schema({
   description: {
     type: String,
     trim: true
+  },
+  time: {
+    type: Date,
+    default: Date.now
   }
 })
 

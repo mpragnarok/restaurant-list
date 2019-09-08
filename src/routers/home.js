@@ -5,6 +5,7 @@ const Restaurant = require('../models/restaurant')
 // restaurant homepage
 router.get('/', async (req, res) => {
   try {
+
     const restaurants = await Restaurant.find({}).sort({ rating: 'desc' }).exec()
     res.render('index', { restaurants })
   } catch (e) {
