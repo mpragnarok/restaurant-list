@@ -2,9 +2,7 @@
 
 This is a restaurant list demo which built up from [Alphacamp](https://tw.alphacamp.co/) semester 3 assignment.
 
-![demo-index](./public/img/demo-index.png)
-
-![demo-show](./public/img/demo-show.png)
+![demo-index](./public/img/demo-gif.gif)
 
 ## Update
 1. Add RESTful CRUD design to restaurant list 
