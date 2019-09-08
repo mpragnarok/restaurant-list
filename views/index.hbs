@@ -10,39 +10,69 @@
           <div class="input-group-append">
             <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
           </div>
+          <a href="/restaurants/new" class="btn btn-major d-inline-block ml-2" type="submit"><i
+              class="fas fa-plus-circle"></i>
+            Add</a>
         </div>
       </form>
+
+
+    </div>
+  </div>
+  <div class="dropdown text-right">
+    <div class="btn-group">
+      <button class="btn btn-outline-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sorted by
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Rating</a>
+        <a class="dropdown-item" href="#">A-Z</a>
+        <a class="dropdown-item" href="#">Z-A</a>
+        <a class="dropdown-item" href="#">Type</a>
+        <a class="dropdown-item" href="#">Area</a>
+      </div>
     </div>
   </div>
 </div>
-
 <!-- restaurant list -->
 <div class="container mt-5">
   <div class="row">
-    <div class="col-md-10 col-12 mx-auto">
-      <div class="card-columns">
 
-        {{#each restaurant}}
-        <a href="/restaurants/{{this.id}}" class="text-secondary">
-          <div class="card mb-3">
-            <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
-            <div class="card-body p-3">
-              <h6 class="card-title mb-1">{{this.name}}</h6>
 
-              <div class="restaurant-category mb-1">
-                <i class="fas fa-utensils pr-2"></i> {{this.category}}
-              </div>
 
-              <span class="badge badge-pill badge-danger font-weight-normal">
-                {{this.rating}}
-                <i class="fas fa-star fa-xs"></i>
-              </span>
+    {{#each restaurants}}
+    <div class="col-sm-3">
+      <a href="/restaurants/{{this.id}}" class="text-secondary">
+        <div class="card mb-3">
+          <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">
+          <div class="card-body p-3">
+            <h6 class="card-title mb-1">{{this.name}}</h6>
+
+            <div class="restaurant-category mb-1">
+              <i class="fas fa-utensils pr-2"></i> {{this.category}}
             </div>
-          </div>
-        </a>
-        {{/each}}
 
-      </div>
+            <span class="badge badge-pill badge-danger font-weight-normal">
+              {{this.rating}}
+              <i class="fas fa-star fa-xs"></i>
+            </span>
+          </div>
+          <div class="card-footer">
+            <form action="/restaurants/{{this.id}}/?_method=DELETE" method="POST">
+              <button href="/restaurants/{{this.id}}" type="button" class="btn btn-outline-success mr-2"
+                href="">Detail</button>
+              <a href="/restaurants/{{this.id}}/edit" type="button" class="btn btn btn-outline-secondary mr-2"
+                href=""><i class="far fa-edit"></i></a>
+              <button type="submit" class="btn btn-outline-danger" href=""><i class="fas fa-trash-alt"></i></button>
+            </form>
+          </div>
+        </div>
+      </a>
     </div>
+    {{/each}}
+
+
+
   </div>
 </div>
