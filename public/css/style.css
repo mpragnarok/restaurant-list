@@ -1,3 +1,8 @@
+* {
+  font-family: 'Noto Sans TC',
+    sans-serif;
+}
+
 header {
   overflow: hidden;
 }
@@ -77,6 +82,8 @@ header {
   text-align: center;
   font-size: 3rem;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: 'Noto Sans TC',
+    sans-serif;
 }
 
 @media screen and (max-width: 992px) {

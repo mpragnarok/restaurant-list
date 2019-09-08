@@ -21,6 +21,9 @@ This is a restaurant list demo which built up from [Alphacamp](https://tw.alphac
 ```markdown
 git clone https://github.com/mpragnarok/restaurant-list.git
 ```
+### MongoDB server
+
+install [MongoDB server](https://www.mongodb.com/download-center/community)
 
 ### Command line
 
@@ -31,6 +34,10 @@ Install all the packages in the project.
 #### npm run dev
 
 Start the server with **nodemon** command.
+
+#### npm run seed
+
+Add seed data to database
 
 #### npm run start
 
