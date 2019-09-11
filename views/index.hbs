@@ -2,7 +2,7 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <form action="/search">
+      <form action="/">
         <h4 class="mb-2">尋找餐廳：</h4>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
@@ -19,18 +19,22 @@
 
     </div>
   </div>
-  <form action="/search" method="get">
+  <form action="/" method="get">
     <div class="dropdown text-right">
       <div class="btn-group">
         <button class="btn btn-outline-danger dropdown-toggle" type="button" name="sort" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false" onchange="this.form.submit()">
-          Sorted by {{sortBy}}
+          Sorted by
+          {{#if sortByEnum}}
+          {{sortBy}}
+          {{/if}}
         </button>
         <div name="" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=rating&order=desc">Rating High to Low</a>
-          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=alphabet&order=asc">A-Z</a>
-          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=category&order=asc">Category</a>
-          <a class="dropdown-item" href="/search?keyword={{keyword}}&sortBy=time&order=desc">Newest</a>
+          <a class="dropdown-item" href="/restaurants?keyword={{keyword}}&sortBy=rating&order=desc">Rating High to
+            Low</a>
+          <a class="dropdown-item" href="/restaurants?keyword={{keyword}}&sortBy=alphabet&order=asc">A-Z</a>
+          <a class="dropdown-item" href="/restaurants?keyword={{keyword}}&sortBy=category&order=asc">Category</a>
+          <a class="dropdown-item" href="/restaurants?keyword={{keyword}}&sortBy=time&order=desc">Newest</a>
         </div>
       </div>
     </div>

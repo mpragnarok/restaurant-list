@@ -1,12 +1,31 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../models/restaurant')
-const exphbs = require('express-handlebars')
+
 
 // fetch all restaurants
 router.get('/', async (req, res) => {
   try {
-    res.redirect('/')
+    const sortBy = req.query.sortBy || 'time'
+    const order = req.query.order || 'desc'
+    const keyword = req.query.keyword || ''
+    const sortByEnum = ['time', 'rating', 'alphabet', 'category'].includes(sortBy)
+    const orderEnum = ['asc', 'desc'].includes(order)
+    let sort = {}
+
+    // if sortBY and order query in enumList
+    if (!sortByEnum || !orderEnum) {
+      sort = { time: 'desc' }
+
+    } else {
+      sort[sortBy] = order
+    }
+
+    const restaurants = await Restaurant.find({}).sort(sort).exec()
+    const searchRestaurant = await restaurants.filter((restaurant) => restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) || restaurant.name.includes(keyword) || restaurant.category.includes(keyword))
+
+    res.render('index', { restaurants: searchRestaurant, keyword, sortBy, sortByEnum })
+
   } catch (e) {
     res.status(500).send()
   }

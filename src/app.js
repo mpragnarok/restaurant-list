@@ -4,6 +4,9 @@ const app = express()
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const session = require('express-session')
+const passport = require('passport')
+const flash = require('connect-flash')
 const port = process.env.PORT || 3000
 const hbs = exphbs.create({
   extname: '.hbs',
@@ -22,13 +25,39 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // setup method-override
 app.use(methodOverride('_method'))
 
+// setup express-session
+app.use(session({
+  secret: 'secretKey belong to Mina',
+  resave: false,
+  saveUninitialized: true
+}))
+
+// setup passport
+app.use(passport.initialize())
+app.use(passport.session())
+
+// setup connect-flash
+app.use(flash())
+
+// import passport config
+require('../config/passport')(passport)
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.success_msg = req.flash('success_msg')
+  res.locals.warning_msg = req.flash('warning_msg')
+  next()
+})
+
+
+
 // static files
 app.use(express.static("public"))
 
 // use route
 app.use('/restaurants', require('./routers/restaurant'))
-app.use('/search', require('./routers/search'))
 app.use('/', require('./routers/home'))
+app.use('/users', require('./routers/user'))
 
 
 
