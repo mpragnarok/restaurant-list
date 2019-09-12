@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-const RestaurantSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+const RestaurantSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -50,6 +51,12 @@ const RestaurantSchema = new mongoose.Schema({
   time: {
     type: Date,
     default: Date.now
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    index: true,
+    required: true
   }
 })
 

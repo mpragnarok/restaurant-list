@@ -1,6 +1,11 @@
 const express = require('express')
 require('./db/mongoose')
 const app = express()
+// check if not in production mode
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
@@ -58,6 +63,7 @@ app.use(express.static("public"))
 app.use('/restaurants', require('./routers/restaurant'))
 app.use('/', require('./routers/home'))
 app.use('/users', require('./routers/user'))
+app.use('/auth', require('./routers/auths'))
 
 
 

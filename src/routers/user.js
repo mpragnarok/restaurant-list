@@ -6,7 +6,10 @@ const User = require('../models/user')
 // show login page
 router.get('/login', async (req, res) => {
   try {
-    res.render('login')
+    // console.log(req.flash('error'))
+    res.render('login', { message: req.flash('error') })
+
+
   } catch (e) {
     res.status(500).send()
   }
@@ -17,7 +20,9 @@ router.post('/login', async (req, res, next) => {
   try {
     passport.authenticate('local', {
       successRedirect: '/',
-      failureRedirect: '/users/login'
+      failureRedirect: '/users/login',
+      badRequestMessage: 'The email does not match any account',
+      failureFlash: true
     })(req, res, next)
 
   } catch (e) {
@@ -88,7 +93,7 @@ router.get('/logout', async (req, res) => {
   try {
     req.logout()
     req.flash('success_msg', 'Logout successfully')
-    res.render('/users/login')
+    res.redirect('/users/login')
   } catch (e) {
     res.status(500).send()
   }

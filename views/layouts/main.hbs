@@ -17,15 +17,20 @@
 </head>
 
 <body>
-  <!-- navigation -->
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" href="/">
-      <span style="font-size: 30px; color: Tomato;"><i class="fas fa-utensils"></i></span>
-      Restaurant List
-    </a>
-    <a href="/users/login" class="btn btn-outline-light">login</a>
-  </nav>
-
+  <header>
+    <!-- navigation -->
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand" href="/">
+        <span style="font-size: 30px; color: Tomato;"><i class="fas fa-utensils"></i></span>
+        Restaurant List
+      </a>
+      {{#if isAuthenticated}}
+      <a href="/users/logout" class="btn btn-outline-dark">Logout</a>
+      {{else}}
+      <a href="/users/login" class="btn btn-outline-dark">Login</a>
+      {{/if}}
+    </nav>
+  </header>
   <div class="banner"></div>
   <!-- partial templates will replace the part of "body" here -->
 
