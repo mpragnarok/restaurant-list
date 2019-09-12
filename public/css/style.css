@@ -69,6 +69,12 @@ header {
   white-space: nowrap;
 }
 
+.card-img-top {
+  max-height: 200px;
+  min-height: 150px;
+  object-fit: cover;
+}
+
 .restaurant-category {
   color: #666666;
   font-size: 0.8rem;

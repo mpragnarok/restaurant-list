@@ -41,13 +41,13 @@
   </form>
 </div>
 <!-- restaurant list -->
-<div class="container mt-5">
+<div class="container my-5">
   <div class="row">
 
 
 
     {{#each restaurants}}
-    <div class="col-sm-3">
+    <div class="col-md-4 pb-5">
       <a href="/restaurants/{{this.id}}" class="text-secondary">
         <div class="card mb-3">
           <img class="card-img-top" src="{{this.image}}" alt="{{this.name}}">

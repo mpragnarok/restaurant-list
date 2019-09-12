@@ -25,7 +25,10 @@
         Restaurant List
       </a>
       {{#if isAuthenticated}}
-      <a href="/users/logout" class="btn btn-outline-dark">Logout</a>
+      <div class="button-group">
+        <a href="/" class="btn btn-outline-info">Welcome {{user.name}}</a>
+        <a href="/users/logout" class="btn btn-outline-dark">Logout</a>
+      </div>
       {{else}}
       <a href="/users/login" class="btn btn-outline-dark">Login</a>
       {{/if}}

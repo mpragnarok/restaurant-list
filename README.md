@@ -1,16 +1,17 @@
-# Restaurant list
+# Restaurant list v3
 
 This is a restaurant list demo which built up from [Alphacamp](https://tw.alphacamp.co/) semester 3 assignment.
 
-![demo-index](./public/img/demo-gif.gif)
+![demo-index](./public/img/demo-auth-gif.gif)
 
 ## Update
-1. Add RESTful CRUD design to restaurant list. 
-2. Add search and sorting feature in index page.
-3. Add register, login and Logout feature with **passport-local**.
-4. Add login with **passport-facebook**.
-5. Add UI message with **passport.js** and connect-flash dependencies in register, login and logout page.
-6. Add request query validation. 
+1. RESTful CRUD design to restaurant list. 
+2. Search and sorting feature in index page.
+3. Register, login and Logout feature with **passport-local**.
+4. Login with **passport-facebook**.
+5. UI message with **passport.js** and connect-flash dependencies in register, login and logout page.
+6. Request query validation. 
+7. restaurant seeder with user reference id.
 
 ## Installing
 
@@ -25,7 +26,7 @@ git clone https://github.com/mpragnarok/restaurant-list.git
 ```
 ### MongoDB server
 
-install [MongoDB server](https://www.mongodb.com/download-center/community) and connect to http://localhost:3000/
+install [MongoDB server](https://www.mongodb.com/download-center/community) and connect to `localhost:27017`
 
 ### Environment variable
 
@@ -52,9 +53,14 @@ Start the server with **nodemon** command.
 
 #### npm run seed
 
-Add seed data to database.
+Add seed data to database then you can hit `CTRL + C ` **twice** to exit from the seeder script.
 
-and use `CTRL + C twice` to exit from the seeder script.
+After run seeder, you can login with default accounts
+
+**Default accounts / password**
+
+1. user1@example.com / 12345678
+2. user2@example.com /12345678
 
 #### npm run start
 
@@ -73,6 +79,8 @@ Head to [http://localhost:3000](http://localhost:3000) to experience the restaur
 ​	The page has a dynamic index to show up the content of web page which contains front-end and back-end techniques. Front-end part is written in **JavaScript**, **CSS** and **HTML** with **Bootstrap**, back-end part is written in **Node.js** and **Express.js**, server side uses  **MongoDB** with **Mongoose**.  
 
 ​	The dynamic webpage is made up by **handlebars**. On top of that, it includes search feature which can search with Chinese, English(Uppercase or lowercase) and category of restaurant. 
+
+​	Additionally, it has login authentication with local strategy and Facebook strategy which create with **passport.js** , users can only look up the restaurants data which they've added.
 
 ## packages
 
