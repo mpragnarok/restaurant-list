@@ -5,8 +5,12 @@ This is a restaurant list demo which built up from [Alphacamp](https://tw.alphac
 ![demo-index](./public/img/demo-gif.gif)
 
 ## Update
-1. Add RESTful CRUD design to restaurant list 
-2. Add search and sorting feature in index page
+1. Add RESTful CRUD design to restaurant list. 
+2. Add search and sorting feature in index page.
+3. Add register, login and Logout feature with **passport-local**.
+4. Add login with **passport-facebook**.
+5. Add UI message with **passport.js** and connect-flash dependencies in register, login and logout page.
+6. Add request query validation. 
 
 ## Installing
 
@@ -14,14 +18,27 @@ This is a restaurant list demo which built up from [Alphacamp](https://tw.alphac
 
 #### git clone
 
-`git clone` to clone the project
+`git clone` to clone the project.
 
 ```markdown
 git clone https://github.com/mpragnarok/restaurant-list.git
 ```
 ### MongoDB server
 
-install [MongoDB server](https://www.mongodb.com/download-center/community)
+install [MongoDB server](https://www.mongodb.com/download-center/community) and connect to http://localhost:3000/
+
+### Environment variable
+
+Go to https://developers.facebook.com/ to create your own **App ID** and **App Secret** for restaurant list App
+
+Create `.env` in the root folder
+
+```js
+// .env
+FACEBOOK_ID = <Your APP ID>
+FACEBOOK_SECRET = <Your App Secret>
+CALLBACK_DOMAIN = http://localhost:3000
+```
 
 ### Command line
 
@@ -35,7 +52,9 @@ Start the server with **nodemon** command.
 
 #### npm run seed
 
-Add seed data to database
+Add seed data to database.
+
+and use `CTRL + C twice` to exit from the seeder script.
 
 #### npm run start
 
@@ -43,7 +62,7 @@ Start the server with node command.
 
 #### CTRL + C twice
 
-Stop the server
+Stop running server.
 
 ### Browser
 
@@ -57,16 +76,23 @@ Head to [http://localhost:3000](http://localhost:3000) to experience the restaur
 
 ## packages
 
-#### dependencies
+#### dependencies with version
 
-1. express
-2. express-handlebars
-3. mongodb
-4. mongoose
-5. method-override
-6. body-parser
+1. bcryptjs: 2.4.3
+2. body-parser: 1.19.0
+3. connect-flash: 0.1.1
+4. dotenv: 0.1.1
+5. express: 4.17.1
+6. express-handlebars: 3.1.0
+7. express-session: 1.16.2
+8. method-override: 3.0.0
+9. mongodb: 3.3.2
+10. mongoose: 5.6.13
+11. passport: 0.4.0
+12. passport-facebook: 3.0.0
+13. passport-local: 1.0.0
 
 
 #### devDependency
 
-1. nodemon
+1. nodemon: 1.19.1
