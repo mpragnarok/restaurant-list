@@ -23,7 +23,7 @@ router.get('/', authenticated, async (req, res) => {
     }
 
     const restaurants = await Restaurant.find({ userId: req.user.id }).sort(sort).exec()
-    const searchRestaurant = await restaurants.filter((restaurant) => restaurant.name_en.toLowerCase().includes(keyword.toLowerCase()) || restaurant.name.includes(keyword) || restaurant.category.includes(keyword))
+    const searchRestaurant = await restaurants.filter((restaurant) => restaurant.nameEn.toLowerCase().includes(keyword.toLowerCase()) || restaurant.name.includes(keyword) || restaurant.category.includes(keyword))
 
     res.render('index', { restaurants: searchRestaurant, keyword, sortBy, sortByEnum })
 
@@ -36,12 +36,12 @@ router.get('/', authenticated, async (req, res) => {
 router.post('/', authenticated, async (req, res) => {
   const restaurant = new Restaurant({
     name: req.body.name,
-    name_en: req.body.name_en,
+    nameEn: req.body.nameEn,
     category: req.body.category,
     image: req.body.image,
     location: req.body.location,
     phone: req.body.phone,
-    google_map: req.body.google_map,
+    googleMap: req.body.googleMap,
     rating: req.body.rating,
     description: req.body.description,
     userId: req.user._id

@@ -44,7 +44,7 @@ router.post('/register', async (req, res) => {
     const { name, email, password, password2 } = req.body
     let errors = []
 
-    if (!name || !email || !password || !password2) {
+    if (!email || !password || !password2) {
       errors.push({ message: 'All fields are required' })
     }
 
