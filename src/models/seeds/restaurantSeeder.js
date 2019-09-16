@@ -5,7 +5,7 @@ const { users } = require('./user.json')
 const { restaurants } = require('./restaurant.json')
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/restaurant', { useNewUrlParser: true, useCreateIndex: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/restaurant', { useNewUrlParser: true, useCreateIndex: true })
 
 const db = mongoose.connection
 db.on('error', async () => {
